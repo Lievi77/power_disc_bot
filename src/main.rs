@@ -43,14 +43,8 @@ impl EventHandler for Handler {
 async fn main() {
     let token = env::var("DISCORD_TOKEN").expect("Expected a token in the environment");
 
-    // Set gateway intents, which decides what events the bot will be notified about
-    // | means "or" when dealing with patterns
-    let intents = GatewayIntents::GUILD_MESSAGES
-        | GatewayIntents::DIRECT_MESSAGES
-        | GatewayIntents::MESSAGE_CONTENT;
-
     //Create an instance of a Client, logging in as a bot
-    let mut client = Client::builder(&token, intents)
+    let mut client = Client::builder(&token)
         .event_handler(Handler)
         .await
         .expect("Err creating client");
