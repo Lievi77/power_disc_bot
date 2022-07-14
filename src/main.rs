@@ -27,6 +27,8 @@ impl EventHandler for Handler {
                 println!("Error sending message: {:?}", e);
             };
         }
+
+        //TODO: Add the help command
     }
 
     /*
